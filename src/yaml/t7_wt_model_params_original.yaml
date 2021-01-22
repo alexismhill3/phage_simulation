@@ -1,0 +1,135 @@
+cell_volume: 1.1e-15
+polymerases:
+- copy_number: 0
+  footprint: 35
+  name: rnapol-1
+  speed: 230
+- copy_number: 0
+  footprint: 35
+  name: rnapol-3.5
+  speed: 230
+- copy_number: 0
+  footprint: 35
+  name: ecolipol
+  speed: 45
+- copy_number: 0
+  footprint: 35
+  name: ecolipol-p
+  speed: 45
+- copy_number: 0
+  footprint: 35
+  name: ecolipol-2
+  speed: 45
+- copy_number: 0
+  footprint: 35
+  name: ecolipol-2-p
+  speed: 45
+reactions:
+- products:
+  - bound_ribosome
+  rate_constant: 1000000.0
+  reactants:
+  - ecoli_transcript
+  - __ribosome
+- products:
+  - __ribosome
+  - ecoli_transcript
+  rate_constant: 0.04
+  reactants:
+  - bound_ribosome
+- products:
+  - degraded_transcript
+  rate_constant: 0.001925
+  reactants:
+  - ecoli_transcript
+- products:
+  - bound_ecolipol
+  rate_constant: 10000000.0
+  reactants:
+  - ecolipol
+  - ecoli_genome
+- products:
+  - bound_ecolipol_p
+  rate_constant: 3000000.0
+  reactants:
+  - ecolipol-p
+  - ecoli_genome
+- products:
+  - ecolipol
+  - ecoli_genome
+  - ecoli_transcript
+  rate_constant: 0.04
+  reactants:
+  - bound_ecolipol
+- products:
+  - ecolipol-p
+  - ecoli_genome
+  - ecoli_transcript
+  rate_constant: 0.04
+  reactants:
+  - bound_ecolipol_p
+- products:
+  - ecolipol-p
+  - protein_kinase-0.7
+  rate_constant: 38000000.0
+  reactants:
+  - protein_kinase-0.7
+  - ecolipol
+- products:
+  - ecolipol-2-p
+  - protein_kinase-0.7
+  rate_constant: 38000000.0
+  reactants:
+  - protein_kinase-0.7
+  - ecolipol-2
+- products:
+  - ecolipol-2
+  rate_constant: 38000000.0
+  reactants:
+  - gp-2
+  - ecolipol
+- products:
+  - ecolipol-2-p
+  rate_constant: 38000000.0
+  reactants:
+  - gp-2
+  - ecolipol-p
+- products:
+  - gp-2
+  - ecolipol-p
+  rate_constant: 1.1
+  reactants:
+  - ecolipol-2-p
+- products:
+  - gp-2
+  - ecolipol
+  rate_constant: 1.1
+  reactants:
+  - ecolipol-2
+- products:
+  - rnapol-3.5
+  rate_constant: 3800000000.0
+  reactants:
+  - lysozyme-3.5
+  - rnapol-1
+- products:
+  - lysozyme-3.5
+  - rnapol-1
+  rate_constant: 3.5
+  reactants:
+  - rnapol-3.5
+ribosomes:
+- copy_number: 0
+  footprint: 30
+  speed: 30
+species:
+- copy_number: 10000
+  name: bound_ribosome
+- copy_number: 1800
+  name: bound_ecolipol
+- copy_number: 0
+  name: bound_ecolipol_p
+- copy_number: 0
+  name: ecoli_genome
+- copy_number: 0
+  name: ecoli_transcript

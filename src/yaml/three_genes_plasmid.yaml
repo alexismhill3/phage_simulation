@@ -1,0 +1,52 @@
+genome: 
+  name: "plasmid" 
+  length: 450
+  transcript_degradation_rate_ext: 0.00001
+  rnase_speed: 20
+  rnase_footprint: 10
+  copy_number: 1
+
+genes:
+- name: proteinX
+  rbs: -15
+  rbs_strength: 10000000.0
+  start: 40
+  stop: 148
+- name: proteinY
+  rbs: -15
+  rbs_strength: 10000000.0
+  start: 176
+  stop: 250
+- name: proteinZ
+  rbs: -15
+  rbs_strength: 10000000.0
+  start: 315
+  stop: 448
+
+promoters:
+- interactions:
+    ecolipol: 100000.0
+    ecolipol-p: 30000.0
+  name: E. coli promoter p1
+  start: 1
+  stop: 36
+- interactions:
+    ecolipol: 100000.0
+    ecolipol-p: 30000.0
+  name: E. coli promoter p2
+  start: 265
+  stop: 300
+
+rnase_sites:
+- name: RNase III site r1
+  rnase_strength: 0.01
+  start: 300
+  stop: 310
+
+terminators:
+- interactions:
+    ecolipol: 1.0
+    ecolipol-p: 1.0
+  name: E. coli transcription terminator t1
+  start: 449
+  stop: 450
